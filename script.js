@@ -7,15 +7,15 @@ const cruiseCatalogue = [
             {
                 interiorCabin: {
                     price: 900,
-                    totalAvailable: 40
+                    roomsAvailable: 40
                 },
                 oceanViewCabin: {
                     price: 1400,
-                    totalAvailable: 30
+                    roomsAvailable: 30
                 },
                 Suite: {
                     price: 2500,
-                    totalAvailable: 20
+                    roomsAvailable: 20
                 }
             }
         ],
@@ -29,15 +29,15 @@ const cruiseCatalogue = [
             {
                 interiorCabin: {
                     price: 700,
-                    totalAvailable: 25
+                    roomsAvailable: 25
                 },
                 oceanViewCabin: {
                     price: 1200,
-                    totalAvailable: 20
+                    roomsAvailable: 20
                 },
                 Suite: {
                     price: 2300,
-                    totalAvailable: 15
+                    roomsAvailable: 15
                 }
             }
         ],
@@ -51,15 +51,15 @@ const cruiseCatalogue = [
             {
                 interiorCabin: {
                     price: 800,
-                    totalAvailable: 30
+                    roomsAvailable: 30
                 },
                 oceanViewCabin: {
                     price: 1400,
-                    totalAvailable: 40
+                    roomsAvailable: 40
                 },
                 Suite: {
                     price: 2600,
-                    totalAvailable: 20
+                    roomsAvailable: 20
                 }
             }
         ],
@@ -76,24 +76,42 @@ const cruiseCatalogueElement = document.getElementById("cruiseCatalogue");
 console.log("Hi Joe");
 
 document.addEventListener("DOMContentLoaded", function(){
-    renderCruiseCatalogue();
+    renderCruiseCatalogue(cruiseCatalogue);
     console.log("DOM Loaded");
 });
 
 
 
 function renderCruiseCatalogue(cruiseCatalogue){
-    return cruiseCatalogue.map(item => `
+
+    const html = cruiseCatalogue.map(item => `
         <li>
         <h3>Cruise Title:${item.cruiseTitle}</h3>
         <p>Destination:${item.destination}</p>
         <p>shipName:${item.ship}</p>
         <p>Cabin Options:<p>
-        <li>
-        <p>Interior Cabin:</p>
-        <p>Room Price: ${item.price}</p>
-        <p>Rooms Left: ${item.price}</p>
+        <ul>
+         ${item.cabins.map(cabin => `
+            <li>
+            <p>Interior Cabin:</p>
+            <p>Room Price: ${cabin.interiorCabin.price}</p>
+            <p>Rooms Left: ${cabin.interiorCabin.roomsAvailable}</p>
+            </li>
+            <li>
+            <p>Ocean View Cabin:</p>
+            <p>Room Price: ${cabin.oceanViewCabin.price}</p>
+            <p>Rooms Left: ${cabin.oceanViewCabin.roomsAvailable}</p>
+            </li>
+              <li>
+            <p>Suite:</p>
+            <p>Room Price: ${cabin.Suite.price}</p>
+            <p>Rooms Left: ${cabin.Suite.roomsAvailable}</p>
+            </li>
+            `)}
+        </ul>
+        
         </li>
-        </li>
-        `)
+        `).join("");
+
+    cruiseCatalogueElement.innerHTML = html;
 }
