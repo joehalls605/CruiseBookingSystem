@@ -3,18 +3,16 @@ const cruiseCatalogue = [
         cruiseTitle: "Barbados Tour",
         destination: "Barbados",
         ship: "Victoria",
+        pricePerPerson: 1700,
         cabins: [
             {
                 interiorCabin: {
-                    price: 900,
                     roomsAvailable: 40
                 },
                 oceanViewCabin: {
-                    price: 1400,
                     roomsAvailable: 30
                 },
                 Suite: {
-                    price: 2500,
                     roomsAvailable: 20
                 }
             }
@@ -25,18 +23,16 @@ const cruiseCatalogue = [
         cruiseTitle: "Norway Tour",
         destination: "Norway",
         ship: "Olena",
+        pricePerPerson: 1400,
         cabins: [
             {
                 interiorCabin: {
-                    price: 700,
                     roomsAvailable: 25
                 },
                 oceanViewCabin: {
-                    price: 1200,
                     roomsAvailable: 20
                 },
                 Suite: {
-                    price: 2300,
                     roomsAvailable: 15
                 }
             }
@@ -47,18 +43,16 @@ const cruiseCatalogue = [
         destination: "Lisbon",
         cruiseTitle: "Lisbon Tour",
         ship: "Bella",
+        pricePerPerson: 1200,
         cabins: [
             {
                 interiorCabin: {
-                    price: 800,
                     roomsAvailable: 30
                 },
                 oceanViewCabin: {
-                    price: 1400,
                     roomsAvailable: 40
                 },
                 Suite: {
-                    price: 2600,
                     roomsAvailable: 20
                 }
             }
@@ -72,46 +66,52 @@ const bookingList = [];
 // DOM elements
 
 const cruiseCatalogueElement = document.getElementById("cruiseCatalogue");
+const filterByPriceElement = document.getElementById("filterByPrice");
+const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
+const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
+const applyFiltersElement = document.getElementById("applyFilters");
 
-console.log("Hi Joe");
 
 document.addEventListener("DOMContentLoaded", function(){
     renderCruiseCatalogue(cruiseCatalogue);
     console.log("DOM Loaded");
 });
 
+applyFiltersElement.addEventListener("click", applyFilters);
 
 
 function renderCruiseCatalogue(cruiseCatalogue){
 
     const html = cruiseCatalogue.map(item => `
-        <li>
-        <h3>Cruise Title:${item.cruiseTitle}</h3>
+        <h3>${item.cruiseTitle}</h3>
         <p>Destination:${item.destination}</p>
-        <p>shipName:${item.ship}</p>
+        <p>ShipName:${item.ship}</p>
+        <p>Price per person ${item.pricePerPerson}</p>
         <p>Cabin Options:<p>
         <ul>
          ${item.cabins.map(cabin => `
             <li>
             <p>Interior Cabin:</p>
-            <p>Room Price: ${cabin.interiorCabin.price}</p>
             <p>Rooms Left: ${cabin.interiorCabin.roomsAvailable}</p>
             </li>
             <li>
             <p>Ocean View Cabin:</p>
-            <p>Room Price: ${cabin.oceanViewCabin.price}</p>
             <p>Rooms Left: ${cabin.oceanViewCabin.roomsAvailable}</p>
             </li>
               <li>
             <p>Suite:</p>
-            <p>Room Price: ${cabin.Suite.price}</p>
             <p>Rooms Left: ${cabin.Suite.roomsAvailable}</p>
             </li>
             `)}
         </ul>
-        
-        </li>
         `).join("");
 
     cruiseCatalogueElement.innerHTML = html;
+}
+
+function applyFilters(){
+    const minPrice = filterByPriceMinInputElement.value;
+    const maxPrice = filterByPriceMaxInputElement.value;
+    console.log(minPrice);
+    console.log(maxPrice);
 }
