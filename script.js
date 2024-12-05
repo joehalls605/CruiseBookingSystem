@@ -114,4 +114,15 @@ function applyFilters(){
     const maxPrice = filterByPriceMaxInputElement.value;
     console.log(minPrice);
     console.log(maxPrice);
+    filterByPrice(minPrice, maxPrice, cruiseCatalogue);
+}
+
+function filterByPrice(minPrice, maxPrice, cruiseCatalogue){
+    // const cruisesFilteredByPrice = cruiseCatalogue.filter(element => element.pricePerPerson <= minPrice && element.pricePerPerson <= maxPrice);
+    const cruisesFilteredByPrice = cruiseCatalogue.filter(function(element){
+        return element.pricePerPerson >= minPrice && element.pricePerPerson <= maxPrice;
+    })
+
+    console.log(cruisesFilteredByPrice);
+    renderCruiseCatalogue(cruisesFilteredByPrice);
 }
