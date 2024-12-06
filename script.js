@@ -69,6 +69,11 @@ const cruiseCatalogueElement = document.getElementById("cruiseCatalogue");
 const filterByPriceElement = document.getElementById("filterByPrice");
 const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
 const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
+
+// Destinations
+const destinationOptionsElement = document.getElementById("destinationOptions");
+
+
 const applyFiltersElement = document.getElementById("applyFilters");
 
 
@@ -109,6 +114,9 @@ function renderCruiseCatalogue(cruiseCatalogue){
     cruiseCatalogueElement.innerHTML = html;
 }
 
+filterByDestination(cruiseCatalogue);
+
+
 function applyFilters(){
     const minPrice = filterByPriceMinInputElement.value;
     const maxPrice = filterByPriceMaxInputElement.value;
@@ -125,4 +133,35 @@ function filterByPrice(minPrice, maxPrice, cruiseCatalogue){
 
     console.log(cruisesFilteredByPrice);
     renderCruiseCatalogue(cruisesFilteredByPrice);
+}
+
+// JOE WORK ON THIS.
+
+
+function filterByDestination(cruiseCatalogue){
+    const cruiseDestinations = cruiseCatalogue.map(element => element.destination);
+    renderCruiseDestinations(cruiseDestinations);
+    console.log("JOE THESE ARE THE CRUISE DESNTATIONS", cruiseDestinations);
+}
+
+function renderCruiseDestinations(cruiseDestinations){
+
+    // Clearing existing options
+    destinationOptionsElement.innerHTML = "";
+
+    // Creating a default choose destination option
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Choose destination";
+    defaultOption.value="";
+    destinationOptionsElement.appendChild(defaultOption);
+
+    // Adding destinations as options
+    cruiseDestinations.forEach(destination => {
+        const optionElement = document.createElement("option");
+        optionElement.textContent = destination;
+        optionElement.value = destination;
+        destinationOptionsElement.appendChild(optionElement);
+    });
+
+    console.log(destinationOptionsElement);
 }
