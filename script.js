@@ -1,3 +1,9 @@
+
+// JOE TO DO
+
+// Apply filters to work only,choose option does not update filtering.
+// Split out files with export import etc.
+
 const cruiseCatalogue = [
     {
         cruiseTitle: "Barbados Tour",
@@ -70,11 +76,14 @@ const filterByPriceElement = document.getElementById("filterByPrice");
 const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
 const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
 
-// Destinations
+// Destination
 const destinationOptionsElement = document.getElementById("destinationOptions");
+destinationOptionsElement.addEventListener("change", storeDestination);
 
 
 const applyFiltersElement = document.getElementById("applyFilters");
+applyFiltersElement.addEventListener("click", applyFilters);
+
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -82,7 +91,8 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log("DOM Loaded");
 });
 
-applyFiltersElement.addEventListener("click", applyFilters);
+
+
 
 
 function renderCruiseCatalogue(cruiseCatalogue){
@@ -114,7 +124,6 @@ function renderCruiseCatalogue(cruiseCatalogue){
     cruiseCatalogueElement.innerHTML = html;
 }
 
-renderfilterByDestination(cruiseCatalogue);
 
 
 // APPLY FILTERS
@@ -135,18 +144,12 @@ function filterByPrice(minPrice, maxPrice, cruiseCatalogue){
 
     console.log(cruisesFilteredByPrice);
     renderCruiseCatalogue(cruisesFilteredByPrice);
+
+    
 }
 
-
-// POPULATE FILTER WITH DESTINATIONS
-
-function renderfilterByDestination(cruiseCatalogue){
-    const cruiseDestinations = cruiseCatalogue.map(element => element.destination);
-    renderCruiseDestinations(cruiseDestinations);
-    console.log("JOE THESE ARE THE CRUISE DESNTATIONS", cruiseDestinations);
-}
-
-// SHOW CRUISE DESTINATIONS
+const cruiseDestinations = cruiseCatalogue.map(element => element.destination);
+console.log("these are the cruise destinations array", cruiseDestinations);
 
 function renderCruiseDestinations(cruiseDestinations){
 
@@ -167,20 +170,17 @@ function renderCruiseDestinations(cruiseDestinations){
         destinationOptionsElement.appendChild(optionElement);
     });
 
-    console.log(destinationOptionsElement);
 }
 
-destinationOptionsElement.addEventListener("change", submitDestination);
+renderCruiseDestinations(cruiseDestinations);
 
-function submitDestination(event){
+function storeDestination(event){
+    console.log(event);
     const selectedDestination = event.target.value;
-    if(selectedDestination){
-        // Filtering the cruise catalogue by the selected destination
-        const filteredCruises = cruiseCatalogue.filter(cruise => cruise.destination === selectedDestination);
-        renderCruiseCatalogue(filteredCruises);
-    }
-    else{
-        console.log("No destination selected");
-        renderCruiseCatalogue(cruiseCatalogue);
-    }
+    console.log(selectedDestination);
+    return selectedDestination;
+}
+
+function filterByDestination(){
+    
 }
