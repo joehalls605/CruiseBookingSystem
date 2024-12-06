@@ -114,8 +114,10 @@ function renderCruiseCatalogue(cruiseCatalogue){
     cruiseCatalogueElement.innerHTML = html;
 }
 
-filterByDestination(cruiseCatalogue);
+renderfilterByDestination(cruiseCatalogue);
 
+
+// APPLY FILTERS
 
 function applyFilters(){
     const minPrice = filterByPriceMinInputElement.value;
@@ -135,14 +137,16 @@ function filterByPrice(minPrice, maxPrice, cruiseCatalogue){
     renderCruiseCatalogue(cruisesFilteredByPrice);
 }
 
-// JOE WORK ON THIS.
 
+// POPULATE FILTER WITH DESTINATIONS
 
-function filterByDestination(cruiseCatalogue){
+function renderfilterByDestination(cruiseCatalogue){
     const cruiseDestinations = cruiseCatalogue.map(element => element.destination);
     renderCruiseDestinations(cruiseDestinations);
     console.log("JOE THESE ARE THE CRUISE DESNTATIONS", cruiseDestinations);
 }
+
+// SHOW CRUISE DESTINATIONS
 
 function renderCruiseDestinations(cruiseDestinations){
 
@@ -164,4 +168,19 @@ function renderCruiseDestinations(cruiseDestinations){
     });
 
     console.log(destinationOptionsElement);
+}
+
+destinationOptionsElement.addEventListener("change", submitDestination);
+
+function submitDestination(event){
+    const selectedDestination = event.target.value;
+    if(selectedDestination){
+        // Filtering the cruise catalogue by the selected destination
+        const filteredCruises = cruiseCatalogue.filter(cruise => cruise.destination === selectedDestination);
+        renderCruiseCatalogue(filteredCruises);
+    }
+    else{
+        console.log("No destination selected");
+        renderCruiseCatalogue(cruiseCatalogue);
+    }
 }
