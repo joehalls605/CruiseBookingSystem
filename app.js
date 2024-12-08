@@ -13,11 +13,11 @@ const searchButtonElement = document.getElementById("searchButton");
 searchButtonElement.addEventListener("click", applySearch);
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Fetch the cruise data
+    // Fetch the cruise data. This makes the network request to fetch the file from cruiseCatalogue.json.
     fetch("cruiseCatalogue.json")
-        .then(response => response.json())
-        .then(data => {
-            cruiseCatalogue = data;
+        .then(response => response.json()) // Once the fetch request is complete, the response is recieved. The response is an object that represents the HTTP response and calling .json parse the response body as JSON. This returns a promise that resolves to the parsed data.
+        .then(data => { // The data here is the parsed content from cruiseCatalogue.json.
+            cruiseCatalogue = data; 
             renderCruiseCatalogue(cruiseCatalogue);  // Render catalogue
             renderCruiseDestinations(cruiseCatalogue.map(item => item.destination));  // Render destination dropdown
             console.log("Cruise data loaded and DOM initialized.");
