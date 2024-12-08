@@ -129,11 +129,22 @@ function renderCruiseCatalogue(cruiseCatalogue){
 // APPLY FILTERS
 
 function applyFilters(){
-    const minPrice = filterByPriceMinInputElement.value;
-    const maxPrice = filterByPriceMaxInputElement.value;
-    console.log(minPrice);
-    console.log(maxPrice);
-    filterByPrice(minPrice, maxPrice, cruiseCatalogue);
+    const minPrice = Number(filterByPriceMinInputElement.value) || 0;
+    const maxPrice = Number(filterByPriceMaxInputElement.value) || 0;
+    const selectedDestination = storeDestination();
+
+    let filteredCatalogue = cruiseCatalogue.filter(function(element){
+        // Checking the price range
+        if(maxPrice > 0 && element.pricePerPerson > maxPrice) return false;
+        if(element.pricePerPerson < minPrice) return false;
+   
+        // Checking the destination
+        if(selectedDestination && element.destination !== selectedDestination) return false;
+
+        return true;
+    });
+
+    renderCruiseCatalogue(filteredCatalogue);
 }
 
 function filterByPrice(minPrice, maxPrice, cruiseCatalogue){
@@ -174,13 +185,14 @@ function renderCruiseDestinations(cruiseDestinations){
 
 renderCruiseDestinations(cruiseDestinations);
 
-function storeDestination(event){
-    console.log(event);
-    const selectedDestination = event.target.value;
-    console.log(selectedDestination);
+function storeDestination(){
+    const selectedDestination = destinationOptionsElement.value;
     return selectedDestination;
 }
 
-function filterByDestination(){
-    
+function filterByDestination(cruiseCatalogue, selectedDestination){
+    if(!selectedDestination) return cruiseCatalogue; // Return original if no destination selected.
+    return cruiseCatalogue.filter(function(element){
+        return element.destination === selectedDestination;
+    })
 }

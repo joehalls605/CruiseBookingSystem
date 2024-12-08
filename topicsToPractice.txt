@@ -1,3 +1,4 @@
+event.target.value - DONE
+
 mapping and displaying content.
-event.target.value;
 dropdowns, select and options
