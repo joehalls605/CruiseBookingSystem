@@ -76,6 +76,10 @@ const filterByPriceElement = document.getElementById("filterByPrice");
 const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
 const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
 
+const searchButtonElement = document.getElementById("searchButton");
+const searchInputElement = document.getElementById("searchInput");
+searchButton.addEventListener("click", applySearch);
+
 // Destination
 const destinationOptionsElement = document.getElementById("destinationOptions");
 destinationOptionsElement.addEventListener("change", storeDestination);
@@ -176,4 +180,17 @@ renderCruiseDestinations(cruiseDestinations);
 function storeDestination(){
     const selectedDestination = destinationOptionsElement.value;
     return selectedDestination;
+}
+
+function applySearch(){
+    const searchTerm = searchInputElement.value.toLowerCase();
+
+    // Filter the cruise catalogue based on the search term
+    const searchResults = cruiseCatalogue.filter(function(cruise){
+        return(
+            cruise.cruiseTitle.toLowerCase().includes(searchTerm) || cruise.destination.toLowerCase().includes(searchTerm)
+        );
+    });
+
+    renderCruiseCatalogue(searchResults);
 }
