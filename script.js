@@ -126,7 +126,7 @@ function renderCruiseCatalogue(cruiseCatalogue){
 
 
 
-// APPLY FILTERS
+// APPLY FILTERS - I'm using the approach of kicking out the irrelevant items by using return false, then true at the end.
 
 function applyFilters(){
     const minPrice = Number(filterByPriceMinInputElement.value) || 0;
@@ -145,18 +145,6 @@ function applyFilters(){
     });
 
     renderCruiseCatalogue(filteredCatalogue);
-}
-
-function filterByPrice(minPrice, maxPrice, cruiseCatalogue){
-    // const cruisesFilteredByPrice = cruiseCatalogue.filter(element => element.pricePerPerson <= minPrice && element.pricePerPerson <= maxPrice);
-    const cruisesFilteredByPrice = cruiseCatalogue.filter(function(element){
-        return element.pricePerPerson >= minPrice && element.pricePerPerson <= maxPrice;
-    })
-
-    console.log(cruisesFilteredByPrice);
-    renderCruiseCatalogue(cruisesFilteredByPrice);
-
-    
 }
 
 const cruiseDestinations = cruiseCatalogue.map(element => element.destination);
@@ -188,11 +176,4 @@ renderCruiseDestinations(cruiseDestinations);
 function storeDestination(){
     const selectedDestination = destinationOptionsElement.value;
     return selectedDestination;
-}
-
-function filterByDestination(cruiseCatalogue, selectedDestination){
-    if(!selectedDestination) return cruiseCatalogue; // Return original if no destination selected.
-    return cruiseCatalogue.filter(function(element){
-        return element.destination === selectedDestination;
-    })
 }
