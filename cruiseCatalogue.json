@@ -1,0 +1,63 @@
+[
+    {
+      "cruiseTitle": "Barbados Tour",
+      "destination": "Barbados",
+      "ship": "Victoria",
+      "pricePerPerson": 1700,
+      "cabins": [
+        {
+          "interiorCabin": {
+            "roomsAvailable": 40
+          },
+          "oceanViewCabin": {
+            "roomsAvailable": 30
+          },
+          "Suite": {
+            "roomsAvailable": 20
+          }
+        }
+      ],
+      "daysTravelledTotal": 20
+    },
+    {
+      "cruiseTitle": "Norway Tour",
+      "destination": "Norway",
+      "ship": "Olena",
+      "pricePerPerson": 1400,
+      "cabins": [
+        {
+          "interiorCabin": {
+            "roomsAvailable": 25
+          },
+          "oceanViewCabin": {
+            "roomsAvailable": 20
+          },
+          "Suite": {
+            "roomsAvailable": 15
+          }
+        }
+      ],
+      "daysTravelledTotal": 15
+    },
+    {
+      "cruiseTitle": "Lisbon Tour",
+      "destination": "Lisbon",
+      "ship": "Bella",
+      "pricePerPerson": 1200,
+      "cabins": [
+        {
+          "interiorCabin": {
+            "roomsAvailable": 30
+          },
+          "oceanViewCabin": {
+            "roomsAvailable": 40
+          },
+          "Suite": {
+            "roomsAvailable": 20
+          }
+        }
+      ],
+      "daysTravelledTotal": 15
+    }
+  ]
+  
