@@ -48,14 +48,14 @@ export function renderDurationOptions(cruiseDurations){
     durationOptionsElement.innerHTML = "";
 
     const defaultOption = document.createElement("option");
-    defaultOption.textContent = "Choose destination";
+    defaultOption.textContent = "Choose a duration";
     defaultOption.value = "";
-    durationOptionsElement.appendChild(optionElement);
+    durationOptionsElement.appendChild(defaultOption);
 
     // Adding durations as options
     cruiseDurations.forEach(duration => {
         const optionElement = document.createElement("option");
-        optionElement.textContent = duration;
+        optionElement.textContent = `${duration} days`
         optionElement.value = duration;
         durationOptionsElement.appendChild(optionElement);
     })

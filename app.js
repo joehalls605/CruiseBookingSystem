@@ -1,3 +1,10 @@
+/*
+TODO:
+Sort duration filtering.
+
+*/
+
+
 // Import functions for applying filters, search, and rendering
 import { applyFilters } from './filters.js';
 import { applySearch } from './search.js';

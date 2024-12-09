@@ -11,7 +11,7 @@ export function applyFilters() {
     const maxPrice = Number(filterByPriceMaxInputElement.value) || 0;
     const selectedDestination = storeDestination();
 
-    const duration = Number();
+    const duration = Number(durationOptionsElement.value) || 0;
 
     let filteredCatalogue = cruiseCatalogue.filter(function (element) {
         // Checking the price range
@@ -20,6 +20,9 @@ export function applyFilters() {
 
         // Checking the destination
         if (selectedDestination && element.destination !== selectedDestination) return false;
+
+        // Checking the duration
+        if(duration != element.duration) return false; // JOE FIX THIS
 
         return true;
     });
