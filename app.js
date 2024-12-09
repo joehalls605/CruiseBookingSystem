@@ -11,7 +11,7 @@ import { applySearch } from './search.js';
 import { renderCruiseCatalogue, renderCruiseDestinations, renderDurationOptions } from './render.js';
 import { storeDestination } from './destination.js'; 
 
-let cruiseCatalogue = [];
+export let cruiseCatalogue = [];
 
 const applyFiltersElement = document.getElementById("applyFilters");
 applyFiltersElement.addEventListener("click", applyFilters);

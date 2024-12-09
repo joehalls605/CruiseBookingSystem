@@ -1,6 +1,7 @@
 // Import needed functions
 import { renderCruiseCatalogue } from './render.js';
 import { storeDestination } from './destination.js';
+import { cruiseCatalogue } from './app.js';
 
 export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
@@ -13,6 +14,8 @@ export function applyFilters() {
 
     const duration = Number(durationOptionsElement.value) || 0;
 
+    console.log("Current cruiseCatalogue:", cruiseCatalogue);
+
     let filteredCatalogue = cruiseCatalogue.filter(function (element) {
         // Checking the price range
         if (maxPrice > 0 && element.pricePerPerson > maxPrice) return false;
@@ -22,7 +25,7 @@ export function applyFilters() {
         if (selectedDestination && element.destination !== selectedDestination) return false;
 
         // Checking the duration
-        if(duration != element.duration) return false; // JOE FIX THIS
+        if(duration && duration !== element.duration) return false; 
 
         return true;
     });
