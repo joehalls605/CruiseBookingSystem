@@ -40,3 +40,23 @@ export function renderCruiseDestinations(cruiseDestinations) {
         destinationOptionsElement.appendChild(optionElement);
     });
 }
+
+export function renderDurationOptions(cruiseDurations){
+    console.log("cruise destinations",cruiseDurations);
+    const durationOptionsElement = document.getElementById("durationOptions");
+
+    durationOptionsElement.innerHTML = "";
+
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Choose destination";
+    defaultOption.value = "";
+    durationOptionsElement.appendChild(optionElement);
+
+    // Adding durations as options
+    cruiseDurations.forEach(duration => {
+        const optionElement = document.createElement("option");
+        optionElement.textContent = duration;
+        optionElement.value = duration;
+        durationOptionsElement.appendChild(optionElement);
+    })
+}

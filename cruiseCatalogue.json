@@ -4,6 +4,7 @@
       "destination": "Barbados",
       "ship": "Victoria",
       "pricePerPerson": 1700,
+      "duration": 18,
       "cabins": [
         {
           "interiorCabin": {
@@ -24,6 +25,7 @@
       "destination": "Norway",
       "ship": "Olena",
       "pricePerPerson": 1400,
+      "duration": 13,
       "cabins": [
         {
           "interiorCabin": {
@@ -44,6 +46,7 @@
       "destination": "Lisbon",
       "ship": "Bella",
       "pricePerPerson": 1200,
+      "duration": 16,
       "cabins": [
         {
           "interiorCabin": {
