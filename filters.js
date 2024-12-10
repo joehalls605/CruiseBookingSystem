@@ -13,6 +13,10 @@ export function applyFilters() {
     const maxPrice = Number(filterByPriceMaxInputElement.value) || 0;
     const selectedDestination = storeDestination();
 
+    // Ternary practice
+    let isSelectedDestinationTrue = (selectedDestination) ? "Yes it is true" : "No it is not true";
+    console.log(isSelectedDestinationTrue);
+
 
     const duration = Number(durationOptionsElement.value) || 0;
 

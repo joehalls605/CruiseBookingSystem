@@ -67,15 +67,12 @@ export function destinationThankYou(destination){
     switch(destination){
         case "Barbados":
             destinationThankYou.textContent = "Thank you for choosing Barbados!";
-            destinationThankYou.appendChild(text);
             break;
         case "Norway":
             destinationThankYou.textContent = "Thank you for choosing Norway!";
-            destinationThankYou.appendChild(text);
             break;
         case "Lisbon":
             destinationThankYou.textContent = "Thank you for choosing Lisbon!";
-            destinationThankYou.appendChild(text);
             break;
 
     }
