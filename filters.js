@@ -2,6 +2,7 @@
 import { renderCruiseCatalogue } from './render.js';
 import { storeDestination } from './destination.js';
 import { cruiseCatalogue } from './app.js';
+import { destinationThankYou } from './render.js';
 
 export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
@@ -11,6 +12,7 @@ export function applyFilters() {
     const minPrice = Number(filterByPriceMinInputElement.value) || 0;
     const maxPrice = Number(filterByPriceMaxInputElement.value) || 0;
     const selectedDestination = storeDestination();
+
 
     const duration = Number(durationOptionsElement.value) || 0;
 
@@ -29,6 +31,8 @@ export function applyFilters() {
 
         return true;
     });
+
+    destinationThankYou(selectedDestination);
 
     renderCruiseCatalogue(filteredCatalogue);  // Render filtered results
 }

@@ -60,3 +60,23 @@ export function renderDurationOptions(cruiseDurations){
         durationOptionsElement.appendChild(optionElement);
     })
 }
+
+export function destinationThankYou(destination){
+    const destinationThankYou = document.getElementById("destinationThankYou");
+
+    switch(destination){
+        case "Barbados":
+            destinationThankYou.textContent = "Thank you for choosing Barbados!";
+            destinationThankYou.appendChild(text);
+            break;
+        case "Norway":
+            destinationThankYou.textContent = "Thank you for choosing Norway!";
+            destinationThankYou.appendChild(text);
+            break;
+        case "Lisbon":
+            destinationThankYou.textContent = "Thank you for choosing Lisbon!";
+            destinationThankYou.appendChild(text);
+            break;
+
+    }
+}
