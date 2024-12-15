@@ -9,6 +9,7 @@ export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
     const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
     const durationOptionsElement = document.getElementById("durationOptions");
+    const cabinOptionsElement = document.getElementById("cabinOptions");
 
     const minPrice = Number(filterByPriceMinInputElement.value) || 0;
     const maxPrice = Number(filterByPriceMaxInputElement.value) || 0;

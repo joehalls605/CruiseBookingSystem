@@ -33,6 +33,7 @@ export function renderCruiseDestinations(cruiseDestinations) {
     destinationOptionsElement.appendChild(defaultOption);
 
     // Adding destinations as options
+    debugger
     cruiseDestinations.forEach(destination => {
         const optionElement = document.createElement("option");
         optionElement.textContent = destination;
@@ -59,6 +60,35 @@ export function renderDurationOptions(cruiseDurations){
         optionElement.value = duration;
         durationOptionsElement.appendChild(optionElement);
     })
+}
+
+export function renderCabinOptions(cabinOptions){
+    console.log("cabin options", );
+
+    const cabinOptionsElement = document.getElementById("cabinOptions");
+    cabinOptionsElement.innerHTML = "";
+
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Choose a cabin";
+    defaultOption.value = "";
+    cabinOptionsElement.appendChild(defaultOption);
+
+    debugger
+    console.log(cabinOptions);
+
+
+
+    cabinOptions.forEach(cabinArray =>{
+        cabinArray.forEach(cabin =>{
+            for(let cabinType in cabin){
+                const cabinData = cabin[cabinType]; // Access the cabin data for each type
+                const optionElement = document.createElement("option");
+                optionElement.textContent = `${cabinData.roomsAvailable} - Rooms Available for  ${cabinType}`;
+                optionElement.value = cabinType;
+                cabinOptionsElement.appendChild(optionElement);
+            }
+        });
+    });
 }
 
 export function destinationThankYou(destination){
