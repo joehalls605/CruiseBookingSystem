@@ -10,16 +10,28 @@
         <main>
             <div id="application">
             <h1>Cruise Booking System</h1>
+            <!-- PRICE -->
             <input id="filterByPriceMinInput" placeholder="£"></input>
             <input id="filterByPriceMaxInput" placeholder="£"></input>
-            <button id="applyFilters">apply Filters</button>
+            <!-- DESTINATION -->
             <label for="filterByDestination">Choose a destination</label>
             <select id="destinationOptions" name="destinationOptions"></select>
+
+            <!-- DURATION-->
+            <label for="filterByDuration">Choose a duration</label>
+            <select id="durationOptions" name="durationOptions"></select>
+
+            <!-- CABIN -->
+
+            <label for="filterByCabin"></label>
+
+
+            <button id="applyFilters">apply Filters</button>
+
             <label for="searchInput">Search:</label>
             <input type="text" id="searchInput" placeholder="Enter search term...">
             <button id="searchButton">Search</button>
-            <label for="filterByDuration">Choose a duration</label>
-            <select id="durationOptions" name="durationOptions"></select>
+            
             <div id="destinationThankYou"></div>
             <div id="cruiseCatalogue"></div>
         </div>

@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json()) // Once the fetch request is complete, the response is recieved. The response is an object that represents the HTTP response and calling .json parse the response body as JSON. This returns a promise that resolves to the parsed data.
         .then(data => { // The data here is the parsed content from cruiseCatalogue.json.
             cruiseCatalogue = data; 
+            console.log(cruiseCatalogue);
             renderCruiseCatalogue(cruiseCatalogue);  // Render catalogue
             renderCruiseDestinations(cruiseCatalogue.map(item => item.destination));  // Render destination dropdown
             renderDurationOptions(cruiseCatalogue.map(item => item.duration));

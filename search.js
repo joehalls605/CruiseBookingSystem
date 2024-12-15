@@ -2,15 +2,16 @@
 
 
 import { renderCruiseCatalogue } from './render.js';
+import { cruiseCatalogue } from './app.js';
 
 export function applySearch() {
     const searchInputElement = document.getElementById("searchInput");
     const searchTerm = searchInputElement.value.toLowerCase();
 
-    const searchResults = cruiseCatalogue.filter(function (cruise) {
+    const searchResults = cruiseCatalogue.filter(function (item) {
         return (
-            cruise.cruiseTitle.toLowerCase().includes(searchTerm) ||
-            cruise.destination.toLowerCase().includes(searchTerm)
+            item.cruiseTitle.toLowerCase().includes(searchTerm) ||
+            item.destination.toLowerCase().includes(searchTerm)
         );
     });
 

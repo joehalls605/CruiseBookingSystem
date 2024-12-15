@@ -3,6 +3,7 @@ import { renderCruiseCatalogue } from './render.js';
 import { storeDestination } from './destination.js';
 import { cruiseCatalogue } from './app.js';
 import { destinationThankYou } from './render.js';
+import cabinUpdate from './cabinUpdate.js';
 
 export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
@@ -32,6 +33,10 @@ export function applyFilters() {
 
         // Checking the duration
         if(duration && duration !== element.duration) return false; 
+
+
+        // USER SELECTS CABINS THAT PASSED INTO BELOW
+        cabinUpdate(cruiseCatalogue, selectedDestination);
 
         return true;
     });
