@@ -9,10 +9,15 @@ export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
     const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
     const durationOptionsElement = document.getElementById("durationOptions");
+    const nameElement = document.getElementById("nameInput");
+    const ageElement = document.getElementById("ageInput");
 
     const minPrice = Number(filterByPriceMinInputElement.value) || 0;
     const maxPrice = Number(filterByPriceMaxInputElement.value) || 0;
     const selectedDestination = storeDestination();
+
+    const name = nameElement.value.trim();
+    const age = Number(ageElement.value) || 0;
 
     // Ternary practice
     let isSelectedDestinationTrue = (selectedDestination) ? "Yes it is true" : "No it is not true";
@@ -38,11 +43,25 @@ export function applyFilters() {
 
         return true;
     });
-    
 
+    // Combining the filtered catalogue with the name and age into a single booking object
+
+    const bookingDetails = {
+        customerName: name,
+        customerAge: age,
+        bookings: filteredCatalogue
+    };
+
+    processBooking(bookingDetails);
+    
     destinationThankYou(selectedDestination);
 
     renderCruiseCatalogue(filteredCatalogue);  // Render filtered results
+}
+
+function processBooking(bookingDetails){
+    const jsonString = JSON.stringify(bookingDetails);
+    console.log("JSON string" + jsonString);
 }
 
 // const destination = applyFilters();
