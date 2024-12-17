@@ -73,19 +73,24 @@ export function renderCabinOptions(cabinOptions){
     defaultOption.value = "";
     cabinOptionsElement.appendChild(defaultOption);
 
-    debugger
     console.log(cabinOptions);
 
-
+    const cabinTypesArray = [];
 
     cabinOptions.forEach(cabinArray =>{
         cabinArray.forEach(cabin =>{
             for(let cabinType in cabin){
-                const cabinData = cabin[cabinType]; // Access the cabin data for each type
-                const optionElement = document.createElement("option");
-                optionElement.textContent = `${cabinData.roomsAvailable} - Rooms Available for  ${cabinType}`;
-                optionElement.value = cabinType;
-                cabinOptionsElement.appendChild(optionElement);
+                // Check if the cabin type is already in the array
+                if(!cabinTypesArray.includes(cabinType)){
+                    const cabinData = cabin[cabinType]; // Access the cabin data for each type
+                    console.log("cabin data"+cabinData);
+                    const optionElement = document.createElement("option");
+                    optionElement.textContent = ` ${cabinType}`;
+                    optionElement.value = cabinType;
+                    cabinOptionsElement.appendChild(optionElement);
+
+                    cabinTypesArray.push(cabinType);
+                }
             }
         });
     });
