@@ -33,7 +33,6 @@ export function renderCruiseDestinations(cruiseDestinations) {
     destinationOptionsElement.appendChild(defaultOption);
 
     // Adding destinations as options
-    debugger
     cruiseDestinations.forEach(destination => {
         const optionElement = document.createElement("option");
         optionElement.textContent = destination;
@@ -85,7 +84,8 @@ export function renderCabinOptions(cabinOptions){
                     const cabinData = cabin[cabinType]; // Access the cabin data for each type
                     console.log("cabin data"+cabinData);
                     const optionElement = document.createElement("option");
-                    optionElement.textContent = ` ${cabinType}`;
+                    const formattedCabinType = cabinData.name;
+                    optionElement.textContent = ` ${formattedCabinType}`;
                     optionElement.value = cabinType;
                     cabinOptionsElement.appendChild(optionElement);
 

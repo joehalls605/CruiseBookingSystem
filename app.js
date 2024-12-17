@@ -19,7 +19,6 @@ applyFiltersElement.addEventListener("click", applyFilters);
 const searchButtonElement = document.getElementById("searchButton");
 searchButtonElement.addEventListener("click", applySearch);
 
-const destination = storeDestination();
 
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch the cruise data. This makes the network request to fetch the file from cruiseCatalogue.json.

@@ -8,13 +8,16 @@
       "cabins": [
         {
           "interiorCabin": {
-            "roomsAvailable": 40
+            "roomsAvailable": 40,
+            "name": "Interior Cabin"
           },
           "oceanViewCabin": {
-            "roomsAvailable": 30
+            "roomsAvailable": 30,
+            "name": "Ocean View Cabin"
           },
           "Suite": {
-            "roomsAvailable": 20
+            "roomsAvailable": 20,
+            "name": "Suite"
           }
         }
       ],
@@ -29,13 +32,16 @@
       "cabins": [
         {
           "interiorCabin": {
-            "roomsAvailable": 25
+            "roomsAvailable": 25,
+            "name": "Interior Cabin"
           },
           "oceanViewCabin": {
-            "roomsAvailable": 20
+            "roomsAvailable": 20,
+              "name": "Ocean View Cabin"
           },
           "Suite": {
-            "roomsAvailable": 15
+            "roomsAvailable": 15,
+              "name": "Suite"
           }
         }
       ],
@@ -50,13 +56,16 @@
       "cabins": [
         {
           "interiorCabin": {
-            "roomsAvailable": 30
+            "roomsAvailable": 30,
+            "name": "Interior Cabin"
           },
           "oceanViewCabin": {
-            "roomsAvailable": 40
+            "roomsAvailable": 40,
+            "name": "Ocean View Cabin"
           },
           "Suite": {
-            "roomsAvailable": 20
+            "roomsAvailable": 20,
+            "name": "Suite"
           }
         }
       ],
