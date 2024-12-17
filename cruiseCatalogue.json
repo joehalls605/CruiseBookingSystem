@@ -70,6 +70,30 @@
         }
       ],
       "daysTravelledTotal": 15
+    },
+    {
+      "cruiseTitle": "Sao Paulo Tour",
+      "destination": "Brazil",
+      "ship": "Leo",
+      "pricePerPerson": 2300,
+      "duration": 30,
+      "cabins": [
+        {
+          "interiorCabin": {
+            "roomsAvailable": 10,
+            "name": "Interior Cabin"
+          },
+          "oceanViewCabin": {
+            "roomsAvailable": 20,
+            "name": "Ocean View Cabin"
+          },
+          "Suite": {
+            "roomsAvailable": 0,
+            "name": "Suite"
+          }
+        }
+      ],
+      "daysTravelledTotal": 30
     }
   ]
   

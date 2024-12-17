@@ -9,14 +9,17 @@ export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
     const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
     const durationOptionsElement = document.getElementById("durationOptions");
-    const nameElement = document.getElementById("nameInput");
+    const firstnameElement = document.getElementById("firstnameInput");
+    const surnameElement = document.getElementById("surnameInput");
     const ageElement = document.getElementById("ageInput");
 
     const minPrice = Number(filterByPriceMinInputElement.value) || 0;
     const maxPrice = Number(filterByPriceMaxInputElement.value) || 0;
     const selectedDestination = storeDestination();
 
-    const name = nameElement.value.trim();
+    const firstname = firstnameElement.value.trim();
+    const surname = surnameElement.value.trim();
+    
     const age = Number(ageElement.value) || 0;
 
     // Ternary practice
@@ -47,7 +50,8 @@ export function applyFilters() {
     // Combining the filtered catalogue with the name and age into a single booking object
 
     const bookingDetails = {
-        customerName: name,
+        customerFirstName: firstname,
+        surname: surname,
         customerAge: age,
         bookings: filteredCatalogue
     };
