@@ -5,6 +5,9 @@ import { cruiseCatalogue } from './app.js';
 import { destinationThankYou } from './render.js';
 import cabinUpdate from './cabinUpdate.js';
 
+const randomDiscountElement = document.getElementById("randomDiscount");
+randomDiscountElement.addEventListener("click", randomDiscount);
+
 export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
     const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
@@ -21,6 +24,7 @@ export function applyFilters() {
     const surname = surnameElement.value.trim();
     
     const age = Number(ageElement.value) || 0;
+    console.log("THE AGE", age);
 
     // Ternary practice
     let isSelectedDestinationTrue = (selectedDestination) ? "Yes it is true" : "No it is not true";
@@ -81,7 +85,12 @@ function displayBookings(json){
     }
 
     const bookingElement = document.createElement("div");
-    bookingElement.textContent = `First name: ${booking.customerFirstName}`;
+    bookingElement.textContent = `
+    First name: ${booking.customerFirstName} 
+    Surname: ${booking.surname}
+    age: ${booking.customerAge}
+
+    `;
 
     const displayBookingsElement = document.getElementById("displayBookings");
 
@@ -92,6 +101,13 @@ function displayBookings(json){
 
     displayBookingsElement.appendChild(bookingElement);
     
+}
+
+function randomDiscount(){
+    let min = 5;
+    let max = 20;
+    let randomNumInRange = Math.floor(Math.floor(Math.random() * (max - min + 1)) + min);
+    randomDiscountElement.textContent = `Your random discount ${randomNumInRange}%`;
 }
 
 // const destination = applyFilters();
