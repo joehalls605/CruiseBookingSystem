@@ -66,6 +66,32 @@ export function applyFilters() {
 function processBooking(bookingDetails){
     const jsonString = JSON.stringify(bookingDetails);
     console.log("JSON string" + jsonString);
+    displayBookings(jsonString);
+}
+
+function displayBookings(json){
+
+    const booking = JSON.parse(json);
+    console.log("Displaying booking:", booking);
+
+    // Checking if the firstname property exists
+    if(!booking.customerFirstName){
+        console.log("Booking object does not contain firstname");
+        return;
+    }
+
+    const bookingElement = document.createElement("div");
+    bookingElement.textContent = `First name: ${booking.customerFirstName}`;
+
+    const displayBookingsElement = document.getElementById("displayBookings");
+
+    if(!displayBookingsElement){
+        console.error("Element with ID 'displayBookings' not found in the DOM");
+        return;
+    }
+
+    displayBookingsElement.appendChild(bookingElement);
+    
 }
 
 // const destination = applyFilters();
