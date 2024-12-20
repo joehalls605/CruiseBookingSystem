@@ -111,6 +111,20 @@ function randomDiscount(){
     let max = 20;
     let randomNumInRange = Math.floor(Math.floor(Math.random() * (max - min + 1)) + min);
     randomDiscountElement.textContent = `Your random discount ${randomNumInRange}%`;
+
+    const discountedCatalogue = [...cruiseCatalogue].map(item => {
+
+        // converting random number into a decimal, then gives the remaining percentage customer has to pay, multiply this and calculates new price.
+        const discountedPrice = item.pricePerPerson * (1 - randomNumInRange / 100);
+
+        return {
+            ...item,
+            pricePerPerson: discountedPrice
+        }
+    })
+
+    renderCruiseCatalogue(discountedCatalogue);
+
 }
 
 function sortByLowPrice(){
