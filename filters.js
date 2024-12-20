@@ -8,6 +8,9 @@ import cabinUpdate from './cabinUpdate.js';
 const randomDiscountElement = document.getElementById("randomDiscount");
 randomDiscountElement.addEventListener("click", randomDiscount);
 
+const filterByLowPrice = document.getElementById("filterByLowPrice");
+filterByLowPrice.addEventListener("click", sortByLowPrice);
+
 export function applyFilters() {
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
     const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
@@ -110,4 +113,13 @@ function randomDiscount(){
     randomDiscountElement.textContent = `Your random discount ${randomNumInRange}%`;
 }
 
-// const destination = applyFilters();
+function sortByLowPrice(){
+    
+    // This just extracts out the prices
+    // const cruisePrices = cruiseCatalogue.map(item => item.pricePerPerson).sort((a,b) => b - a);
+
+    // But this creates a shallow copy of the array using the spread operator
+    const sortedCatalogue = [...cruiseCatalogue].sort((a, b) => b.pricePerPerson - a.pricePerPerson);
+    renderCruiseCatalogue(sortedCatalogue);
+}
+
