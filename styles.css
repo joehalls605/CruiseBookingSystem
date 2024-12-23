@@ -29,3 +29,22 @@ a{
     text-decoration: none;
     list-style-type: none;
 }
+
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 30px;
+}
+
+#filter-column{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#data-display-column{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

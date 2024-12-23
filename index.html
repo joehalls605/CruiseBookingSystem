@@ -21,43 +21,45 @@
         </header>
         <main>
             <div id="application">
-            <label>Firstname:</label>
-            <input id="firstnameInput" type="text" placeholder="Joe" value="Joe"></input>
-            <label>Surname:</label>
-            <input id="surnameInput" type="text" placeholder="Halls" value="Halls"></input>
-            <label>Age:</label>
-            <input id="ageInput" type="text" placeholder="21" value="21"></input>
-            <!-- PRICE -->
-            <input id="filterByPriceMinInput" placeholder="1300" value="1300"></input>
-            <input id="filterByPriceMaxInput" placeholder="1800" value="1800"></input>
-
-            <button id="filterByLowPrice">Filter by cheapest price</button>
-
-            <!-- DESTINATION -->
-            <label for="filterByDestination">Choose a destination</label>
-            <select id="destinationOptions" name="destinationOptions"></select>
-
-            <!-- DURATION-->
-            <label for="filterByDuration">Choose a duration</label>
-            <select id="durationOptions" name="durationOptions"></select>
-
-            <!-- CABIN -->
-
-            <label for="filterByCabin"></label>
-            <select id="cabinOptions" name="cabinOptions"></select>
-
-
-            <button id="applyFilters">apply Filters</button>
-
-
-            <button id="randomDiscount">Click for a random discount!</button>
-            
-            <div id="destinationThankYou"></div>
-            <div id="cruiseCatalogue"></div>
-
-            <div id="displayBookings">
-                
+            <div class="row">
+            <div id="filter-column">
+                <label>Firstname:</label>
+                <input id="firstnameInput" type="text" placeholder="Joe" value="Joe"></input>
+                <label>Surname:</label>
+                <input id="surnameInput" type="text" placeholder="Halls" value="Halls"></input>
+                <label>Age:</label>
+                <input id="ageInput" type="text" placeholder="21" value="21"></input>
+                <!-- PRICE -->
+                <input id="filterByPriceMinInput" placeholder="1300" value="1300"></input>
+                <input id="filterByPriceMaxInput" placeholder="1800" value="1800"></input>
+    
+                <button id="filterByLowPrice">Filter by cheapest price</button>
+    
+                <!-- DESTINATION -->
+                <label for="filterByDestination">Choose a destination</label>
+                <select id="destinationOptions" name="destinationOptions"></select>
+    
+                <!-- DURATION-->
+                <label for="filterByDuration">Choose a duration</label>
+                <select id="durationOptions" name="durationOptions"></select>
+    
+                <!-- CABIN -->
+    
+                <label for="filterByCabin"></label>
+                <select id="cabinOptions" name="cabinOptions"></select>
+    
+    
+                <button id="applyFilters">apply Filters</button>
+    
+    
+                <button id="randomDiscount">Click for a random discount!</button>
             </div>
+            <div id="data-display-column">
+                <div id="destinationThankYou"></div>
+                <div id="cruiseCatalogue"></div>
+                <div id="displayBookings"></div>
+            </div>
+        </div>
         </div>
         </main>
         <!-- Importing main application file -->
