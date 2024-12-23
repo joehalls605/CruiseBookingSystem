@@ -3,18 +3,20 @@ export function renderCruiseCatalogue(cruiseCatalogue) {
     const cruiseCatalogueElement = document.getElementById("cruiseCatalogue");
 
     const html = cruiseCatalogue.map(item => `
+        <div class="cruise-item">
         <h3>${item.cruiseTitle}</h3>
-        <p>Destination: ${item.destination}</p>
-        <p>Ship Name: ${item.ship}</p>
-        <p>Price per person: ${item.pricePerPerson}</p>
-        <p>Cabin Options:</p>
+        <p>${item.destination}</p>
+        <p>${item.ship} Ship</p>
+        <p>£${item.pricePerPerson} (PP)</p>
+        <p>Cabin Rooms Available:</p>
         <ul>
             ${item.cabins.map(cabin => `
-                <li>Interior Cabin: ${cabin.interiorCabin.roomsAvailable} rooms left</li>
-                <li>Ocean View Cabin: ${cabin.oceanViewCabin.roomsAvailable} rooms left</li>
-                <li>Suite: ${cabin.Suite.roomsAvailable} rooms left</li>
+                <li>Interior Cabin: ${cabin.interiorCabin.roomsAvailable}</li>
+                <li>Ocean View Cabin: ${cabin.oceanViewCabin.roomsAvailable}</li>
+                <li>Deluxe Suite: ${cabin.Suite.roomsAvailable}</li>
             `).join('')}
         </ul>
+        </div>
     `).join("");
 
     cruiseCatalogueElement.innerHTML = html;
