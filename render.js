@@ -5,7 +5,7 @@ export function renderCruiseCatalogue(cruiseCatalogue) {
     const html = cruiseCatalogue.map(item => `
         <div class="cruise-item">
         <h3>${item.cruiseTitle}</h3>
-        <p>${item.destination}</p>
+        <p>${item.destination} ${item.emoji}</p>
         <p>${item.ship} Ship</p>
         <p>£${item.pricePerPerson} (PP)</p>
         <p>Cabin Rooms Available:</p>

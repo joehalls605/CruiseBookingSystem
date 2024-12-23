@@ -2,6 +2,7 @@
     {
       "cruiseTitle": "Barbados Tour",
       "destination": "Barbados",
+      "emoji": "🇧🇧",
       "ship": "Victoria",
       "pricePerPerson": 1700,
       "duration": 18,

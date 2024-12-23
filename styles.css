@@ -65,3 +65,17 @@ a{
     display: flex;
     flex-direction: column;
 }
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+select{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+}
+
+input::placeholder{
+    font-family: 'Poppins', sans-serif;
+}
+
+
