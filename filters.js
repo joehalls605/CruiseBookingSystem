@@ -118,8 +118,8 @@ function randomDiscount(){
         const discountedPrice = item.pricePerPerson * (1 - randomNumInRange / 100);
 
         return {
-            ...item,
-            pricePerPerson: discountedPrice
+            ...item, // this takes a whole copy of the object properties and values
+            pricePerPerson: discountedPrice // and updates the price with discounted price
         }
     })
 

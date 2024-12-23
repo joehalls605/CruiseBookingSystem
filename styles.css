@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('./font/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+#header{
+    display: flex;
+    justify-content: space-between; /* I'm using space-between to push the items to either side.*/
+    align-items: center;
+    padding: 20px;
+}
+
+h1 a{
+    text-decoration: none;
+
+}
+a{
+    text-decoration: none;
+    color: black !important;
+}
+
+#nav-links{
+    text-decoration: none;
+    list-style-type: none;
+}
