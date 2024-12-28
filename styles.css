@@ -5,11 +5,14 @@
     font-style: normal;
 }
 
+:root{
+    --primary-grey: #F5F5F5; /* Declaring a colour variable for use*/
+}
+
 html {
     font-family: 'Poppins', sans-serif;
     padding: 20px;
-    background-color: #F5F5F5;
-
+    background-color: var(--primary-grey);
 }
 
 #header{
@@ -18,6 +21,9 @@ html {
     align-items: center;
     height: 10vh; /* Setting the header as always 10% of the viewport height*/
     overflow: visible; /* The content overflows the container and displays outside of it if needed.*/
+    /* position: static; This works by default, this is positioned according to normal flow of the document */
+    position: relative; /* This means the element is positioned relative to normal position. Now I can use top:*/
+    top:10px;
 }
 
 h1 a{
@@ -85,5 +91,31 @@ select{
 input::placeholder{
     font-family: 'Poppins', sans-serif;
 }
+
+@media screen and (max-width:600px) {
+    #filter-column, #data-display-column{
+        width: 100%;
+    }
+    .row{
+        flex-direction: column;
+    }
+}
+
+#applyFilters{
+    /* position: absolute; this removes the element from the document flow entirely, and positions it relative to nearest postioned ancestor */
+    /* top:20px; */
+}
+
+#searchInput, #searchButton{
+    /* position: fixed; Removes the element from the document flow and positions relative to the viewport. This means it will stay in place when the user scrolls. */
+}
+
+#filter-column {
+    position: sticky; /* The element moves with the page at first */
+    top: 20px; /* When the element reaches 20px from the top, it "sticks" there */
+}
+
+
+
 
 
