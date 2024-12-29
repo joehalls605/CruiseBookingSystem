@@ -7,6 +7,9 @@
 
 :root{
     --primary-grey: #F5F5F5; /* Declaring a colour variable for use*/
+    --primary-button-blue: #175f9c;
+    --primary-button-dark-blue: #073b69;
+    
 }
 
 html {
@@ -116,7 +119,7 @@ input::placeholder{
 }
 
 button{
-    background-color: #175f9c;
+    background-color: var(--primary-button-blue);
     border-radius: 50px;
     text-transform: uppercase;
     text-align: center;
@@ -130,7 +133,9 @@ button{
 }
 
 button:hover{
-    background-color: #093b68;
+    background-color: var(--primary-button-dark-blue);
+    cursor: pointer;
+    box-shadow: #093b68;
 }
 
 button:active {
