@@ -8,8 +8,7 @@ Sort duration filtering.
 // Import functions for applying filters, search, and rendering
 import { applyFilters } from './filters.js';
 import { applySearch } from './search.js';
-import { renderCabinOptions, renderCruiseCatalogue, renderCruiseDestinations, renderDurationOptions } from './render.js';
-import { storeDestination } from './destination.js'; 
+import { renderCabinOptions, renderCruiseCatalogue, renderCruiseDestinations, renderDurationOptions, sortByOptionsRender} from './render.js';
 
 export let cruiseCatalogue = [];
 
@@ -19,6 +18,8 @@ applyFiltersElement.addEventListener("click", applyFilters);
 const searchButtonElement = document.getElementById("searchButton");
 searchButtonElement.addEventListener("click", applySearch);
 
+const sortByElement = document.getElementById("sortOptions");
+sortByElement.addEventListener("change", sortByUpdate);
 
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch the cruise data. This makes the network request to fetch the file from cruiseCatalogue.json.
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(item.cabins);
                 return item.cabins;
             }));
+            sortByOptionsRender();
             
             console.log("Cruise data loaded and DOM initialised.");
         })
@@ -41,3 +43,29 @@ document.addEventListener("DOMContentLoaded", function () {
             "Error loading the cruise data:", 
             error));
 });
+
+function sortByUpdate(){
+    const currentSortValue = sortByElement.value;
+    
+    let sortedCatalogue;
+
+    if(currentSortValue === "price-low"){
+        sortedCatalogue = [...cruiseCatalogue].sort((a, b) => a.pricePerPerson - b.pricePerPerson);
+    }
+    else if(currentSortValue === "price-high"){
+        sortedCatalogue = [...cruiseCatalogue].sort((a,b) => b.pricePerPerson - a.pricePerPerson);
+    }
+    else if(currentSortValue === "duration-high"){
+        sortedCatalogue = [...cruiseCatalogue].sort((a,b) => a.duration - b.duration);
+    }
+    else if(currentSortValue === "duration-low"){
+        sortedCatalogue = [...cruiseCatalogue].sort((a,b) => b.duration - a.duration)
+    }
+
+    if(sortedCatalogue){
+        renderCruiseCatalogue(sortedCatalogue);
+    }
+    else{
+        console.log("Unrecognised sorting option selected");
+    }
+};

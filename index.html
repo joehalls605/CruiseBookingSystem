@@ -8,7 +8,7 @@
     </head>
     <body>
         <header id="header">
-            <a href="index.html"><h1>Booking Agent Cruise Booking System</h1></a>
+            <a href="index.html"><h1>Booking Agent System</h1></a>
             <nav>
                 <ul id="nav-links">
                     <li>         
@@ -23,7 +23,7 @@
             <div id="application">
             <div class="row">
             <div id="filter-column">
-                <h2>Your information</h2>
+                <h2>Customer information</h2>
                 <label>Firstname:</label>
                 <input id="firstnameInput" type="text" placeholder="Joe" value="Joe"></input>
                 <label>Surname:</label>
@@ -37,7 +37,6 @@
                 <input id="filterByPriceMinInput" placeholder="1300" value="1300"></input>
                 <label>Maximum</label>
                 <input id="filterByPriceMaxInput" placeholder="1800" value="1800"></input>
-                <button id="filterByLowPrice">Filter by cheapest price</button>
                 <br>
                 <!-- DESTINATION -->
                 <label for="filterByDestination">Choose a destination</label>
@@ -63,6 +62,9 @@
             <div id="data-display-column">
                 <div id="destinationThankYou"></div>
                 <h2>Cruises</h2>
+                <label for="filterByDestination">Sort by</label>
+                <select id="sortOptions" name="sortOptions"></select>
+                <button id="filterByLowPrice">Price (low to high)</button>
                 <div id="cruiseCatalogue"></div>
                 <div id="displayBookings"></div>
             </div>

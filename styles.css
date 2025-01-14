@@ -57,8 +57,6 @@ a{
     max-width: 900px; /* I'm ensuring that the filter does not become to wide on larger screens*/
     min-width: 200px; /* Also making sure the minimum width does not go below 200px */
     max-height: 90vh; /* I'm making sure it doesn't exceed 90% of the viewport height */
-    /* overflow: hidden; */
-    overflow: auto; /* Scrollbars will only appear if content exceeds the height*/
 }
 
 #data-display-column{
@@ -71,7 +69,6 @@ a{
     display: grid;
     grid-template-columns: repeat(2,1fr); /* 2 columns of equal width*/
     gap: 20px;
-    overflow: scroll; /* Enables scrolling even if content fits*/
 }
 
 .cruise-item{
@@ -104,19 +101,7 @@ input::placeholder{
     }
 }
 
-#applyFilters{
-    /* position: absolute; this removes the element from the document flow entirely, and positions it relative to nearest postioned ancestor */
-    /* top:20px; */
-}
 
-#searchInput, #searchButton{
-    /* position: fixed; Removes the element from the document flow and positions relative to the viewport. This means it will stay in place when the user scrolls. */
-}
-
-#filter-column {
-    position: sticky; /* The element moves with the page at first */
-    top: 20px; /* When the element reaches 20px from the top, it "sticks" there */
-}
 
 button{
     background-color: var(--primary-button-blue);

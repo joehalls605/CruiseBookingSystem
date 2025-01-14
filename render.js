@@ -5,8 +5,8 @@ export function renderCruiseCatalogue(cruiseCatalogue) {
     const html = cruiseCatalogue.map(item => `
         <div class="cruise-item">
         <h3>${item.cruiseTitle}</h3>
-        <p>${item.destination} ${item.emoji}</p>
         <p>${item.ship} Ship</p>
+        <p>${item.duration} nights</p>
         <p>£${item.pricePerPerson} (PP)</p>
         <p>Cabin Rooms Available:</p>
         <ul>
@@ -113,4 +113,28 @@ export function destinationThankYou(destination){
             break;
 
     }
+}
+
+export function sortByOptionsRender(){
+    const sortByElement = document.getElementById("sortOptions");
+    sortByElement.innerHTML = "";
+
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Price (Low to high)";
+    defaultOption.value = "price-low" // ? adjust value maybe
+    sortByElement.appendChild(defaultOption);
+
+    const options = [
+        {value: "price-high", text: "Price (High to low)"},
+        {value: "duration-high", text: "Duration (Low to high)"},
+        {value: "duration-low", text: "Duration (High to low)"}
+    ];
+
+    options.forEach(option => {
+        const newOption = document.createElement("option");
+        newOption.value = option.value;
+        newOption.textContent = option.text;
+        sortByElement.appendChild(newOption);
+    })
+
 }
