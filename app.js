@@ -37,5 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             console.log("Cruise data loaded and DOM initialised.");
         })
-        .catch(error => console.error("Error loading the cruise data:", error));
+        .catch(error => console.error(
+            "Error loading the cruise data:", 
+            error));
 });
