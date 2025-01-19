@@ -22,8 +22,15 @@ const sortByElement = document.getElementById("sortOptions");
 sortByElement.addEventListener("change", sortByUpdate);
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Fetch the cruise data. This makes the network request to fetch the file from cruiseCatalogue.json.
-    fetch("cruiseCatalogue.json")
+
+    // Check for email in localStorage
+    const loggedIn = localStorage.getItem("loggedIn");
+
+    if(loggedIn){
+        window.location.href = "login.html";
+    }
+    else{
+        fetch("cruiseCatalogue.json")
         .then(response => response.json()) // Once the fetch request is complete, the response is recieved. The response is an object that represents the HTTP response and calling .json parse the response body as JSON. This returns a promise that resolves to the parsed data.
         .then(data => { // The data here is the parsed content from cruiseCatalogue.json.
             cruiseCatalogue = data; 
@@ -42,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error(
             "Error loading the cruise data:", 
             error));
+    }
+    // Fetch the cruise data. This makes the network request to fetch the file from cruiseCatalogue.json.
+   
 });
 
 function sortByUpdate(){
