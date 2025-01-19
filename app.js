@@ -79,3 +79,18 @@ function sortByUpdate(){
         console.log("Unrecognised sorting option selected");
     }
 };
+
+/* SIDE BAR */
+
+// Get elements
+const sidebar = document.getElementById("sidebar");
+// const content = document.getElementById("content");
+const toggleBtn = document.getElementById("toggle-btn");
+
+// Toggle sidebar visibility
+toggleBtn.addEventListener("click", collapsed);
+
+function collapsed(){
+    sidebar.classList.toggle("open");
+    console.log("I'm being called!");
+}
