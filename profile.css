@@ -1,0 +1,10 @@
+#visibility-image{
+    width: 2%;
+    margin-left: 5px;
+}
+
+#password-row{
+    display: flex;
+    flex-direction: row;
+
+}
