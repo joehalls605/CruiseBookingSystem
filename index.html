@@ -19,11 +19,12 @@
                 </ul>
             </div>
         </div>
+        <div id="content-wrapper">
         <header id="header">
             <a href="index.html"><h1>Booking Agent System</h1></a>
             <nav>
                 <ul id="nav-links">
-                    <li>         
+                    <li>
                         <label for="searchInput">Search:</label>
                         <input type="text" id="searchInput" placeholder="Enter search term...">
                         <button id="searchButton">Search</button>
@@ -31,7 +32,7 @@
                 </ul>
             </nav>
         </header>
-        <main>
+        <main id="main-content">
             <div id="application">
             <div class="row">
             <div id="filter-column">
@@ -50,7 +51,7 @@
                 <label>Maximum</label>
                 <input id="filterByPriceMaxInput" placeholder="1800" value="1800"></input>
                 <br>
-<!-- 
+<!--
                 <div class="price-slider">
                     <label for="min-price">£</label>
                     <input type="number" id="min-price" class="price-input" value="0">
@@ -63,21 +64,21 @@
                 <!-- DESTINATION -->
                 <label for="filterByDestination">Choose a destination</label>
                 <select id="destinationOptions" name="destinationOptions"></select>
-    
+
                 <br>
                 <!-- DURATION-->
                 <label for="filterByDuration">Choose a duration</label>
                 <select id="durationOptions" name="durationOptions"></select>
-    
+
                 <!-- CABIN -->
                 <br>
                 <label for="filterByDuration">Choose a cabin</label>
                 <label for="filterByCabin"></label>
                 <select id="cabinOptions" name="cabinOptions"></select>
-    
+
                 <br>
                 <button id="applyFilters">Apply filters</button>
-    
+
                 <br>
                 <button id="randomDiscount">Apply random discount</button>
             </div>
@@ -93,6 +94,7 @@
         </div>
         </div>
         </main>
+        </div>
         <!-- Importing main application file -->
         <script type="module" src="app.js"></script>
     </body>

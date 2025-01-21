@@ -11,7 +11,7 @@
     --primary-grey: #F5F5F5; /* Declaring a colour variable for use*/
     --primary-button-blue: #175f9c;
     --primary-button-dark-blue: #073b69;
-    
+
 }
 
 html {
@@ -168,6 +168,8 @@ input[type="range"]::-webkit-slider-thumb{
 
 /* SIDE BAR*/
 
+
+
 #sidebar{
     position: fixed;
     top:0;
@@ -180,10 +182,21 @@ input[type="range"]::-webkit-slider-thumb{
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
+    transform: translateX(-170px);
+
 }
 
-#sidebar.open{
-    transform: translateX(-80%);
+#sidebar.open {
+    transform: translateX(0); /* Fully visible when open */
+}
+
+#content-wrapper{
+    margin-left: 40px;
+    transition: margin-left 0.3s ease;
+}
+
+#content-wrapper.sidebar-open {
+    margin-left: 210px;
 }
 
 .toggle-row{

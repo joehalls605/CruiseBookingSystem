@@ -93,5 +93,6 @@ toggleBtn.addEventListener("click", collapsed);
 
 function collapsed(){
     sidebar.classList.toggle("open");  // Toggle the 'open' class for the sidebar
+    document.getElementById('content-wrapper').classList.toggle("sidebar-open");
     toggleBtn.classList.toggle("rotated");
 }
