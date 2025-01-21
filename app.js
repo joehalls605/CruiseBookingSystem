@@ -86,11 +86,12 @@ function sortByUpdate(){
 const sidebar = document.getElementById("sidebar");
 // const content = document.getElementById("content");
 const toggleBtn = document.getElementById("toggle-btn");
+toggleBtn.classList.add("toggle");
 
 // Toggle sidebar visibility
 toggleBtn.addEventListener("click", collapsed);
 
 function collapsed(){
-    sidebar.classList.toggle("open");
-    console.log("I'm being called!");
+    sidebar.classList.toggle("open");  // Toggle the 'open' class for the sidebar
+    toggleBtn.classList.toggle("rotated");
 }

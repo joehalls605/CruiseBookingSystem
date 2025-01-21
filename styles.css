@@ -5,6 +5,8 @@
     font-style: normal;
 }
 
+
+
 :root{
     --primary-grey: #F5F5F5; /* Declaring a colour variable for use*/
     --primary-button-blue: #175f9c;
@@ -171,15 +173,39 @@ input[type="range"]::-webkit-slider-thumb{
     top:0;
     left: 0;
     height: 100vh;
-    width: 250px;
+    width: 210px;
     background-color: var(--primary-button-blue);
     color: white;
     padding-top: 20px;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 #sidebar.open{
-    transform: translateX(90%);
+    transform: translateX(-80%);
+}
+
+.toggle-row{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 14px;
+}
+
+#toggle-btn {
+    width: 18px;
+    height: 18px;
+    align-items: flex-end;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+#toggle-btn.rotated{
+    transform: rotate(180deg);
+}
+
+#toggle-btn :hover{
+    cursor: pointer;
 }
 
 
