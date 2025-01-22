@@ -80,7 +80,12 @@
                 <button id="applyFilters">Apply filters</button>
 
                 <br>
-                <button id="randomDiscount">Apply random discount</button>
+<!--                <button id="randomDiscount">Apply random discount</button>-->
+                <div id="discount">
+                    <label for="discountRange">Discount</label>
+                    <input type="range" id="discountRange" name="discountRange" min="0" max="100" value="0">
+                    <span id="discountValue">0%</span>
+                </div>
             </div>
             <div id="data-display-column">
                 <div id="destinationThankYou"></div>
@@ -89,7 +94,7 @@
                 <select id="sortOptions" name="sortOptions"></select>
                 <!-- <button id="filterByLowPrice">Price (low to high)</button> -->
                 <div id="cruiseCatalogue"></div>
-                <div id="displayBookings"></div>
+<!--                <div id="displayBookings"></div>-->
             </div>
         </div>
         </div>

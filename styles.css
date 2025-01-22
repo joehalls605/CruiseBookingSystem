@@ -250,6 +250,13 @@ input[type="range"]::-webkit-slider-thumb{
     }
 }
 
+#discount{
+    margin-top: 5px;
+}
+
+#discountRange{
+    margin-top: 15px;
+}
 
 
 
