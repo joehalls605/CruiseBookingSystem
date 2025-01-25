@@ -13,13 +13,21 @@ import { renderCabinOptions, renderCruiseCatalogue, renderCruiseDestinations, re
 export let cruiseCatalogue = [];
 
 const applyFiltersElement = document.getElementById("applyFilters");
-applyFiltersElement.addEventListener("click", applyFilters);
+if(applyFiltersElement) {
+    applyFiltersElement.addEventListener("click", applyFilters);
+}
 
 const searchButtonElement = document.getElementById("searchButton");
-searchButtonElement.addEventListener("click", applySearch);
+if(searchButtonElement){
+    searchButtonElement.addEventListener("click", applySearch);
+
+}
 
 const sortByElement = document.getElementById("sortOptions");
-sortByElement.addEventListener("change", sortByUpdate);
+
+if(sortByElement) {
+    sortByElement.addEventListener("change", sortByUpdate);
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -30,8 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "login.html";
     }
     else{
-        fetch("cruiseCatalogue.json")
-        .then(response => response.json()) // Once the fetch request is complete, the response is recieved. The response is an object that represents the HTTP response and calling .json parse the response body as JSON. This returns a promise that resolves to the parsed data.
+        fetch(window.location.pathname.includes("bookings.html") ? "/CruiseBookingSystem/cruiseCatalogue.json" : "./cruiseCatalogue.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            // Once the fetch request is complete, the response is recieved. The response is an object that represents the HTTP response and calling .json parse the response body as JSON. This returns a promise that resolves to the parsed data.
         .then(data => { // The data here is the parsed content from cruiseCatalogue.json.
             cruiseCatalogue = data; 
             console.log(cruiseCatalogue);
@@ -46,9 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
             
             console.log("Cruise data loaded and DOM initialised.");
         })
-        .catch(error => console.error(
-            "Error loading the cruise data:", 
-            error));
+        .catch(error => {
+            console.error("Error loading cruise data:", error);
+            console.log("current path:", window.location.pathname);
+        })
     }
     // Fetch the cruise data. This makes the network request to fetch the file from cruiseCatalogue.json.
    
@@ -86,10 +101,12 @@ function sortByUpdate(){
 const sidebar = document.getElementById("sidebar");
 // const content = document.getElementById("content");
 const toggleBtn = document.getElementById("toggle-btn");
-toggleBtn.classList.add("toggle");
 
 // Toggle sidebar visibility
-toggleBtn.addEventListener("click", collapsed);
+if(toggleBtn){
+    toggleBtn.classList.add("toggle");
+    toggleBtn.addEventListener("click", collapsed);
+}
 
 function collapsed(){
     sidebar.classList.toggle("open");  // Toggle the 'open' class for the sidebar

@@ -5,7 +5,10 @@ import { cruiseCatalogue } from './app.js';
 import { destinationThankYou } from './render.js';
 import cabinUpdate from './cabinUpdate.js';
 
-
+const applyFiltersButton = document.getElementById("applyFilters");
+if (applyFiltersButton) {
+    applyFiltersButton.addEventListener("click", applyFilters);
+}
 
 //
 // window.addEventListener('DOMContentLoaded', () => {
@@ -23,17 +26,24 @@ const randomDiscountElement = document.getElementById("randomDiscount");
 const discountRange = document.getElementById("discountRange");
 const discountValue = document.getElementById("discountValue");
 
-discountRange.addEventListener("input", function(){
-    const discountPercentage = Number(discountRange.value) || 0;
-    discountValue.textContent = `${discountRange.value}%`
-})
 
-
+if(discountRange){
+    discountRange.addEventListener("input", function(){
+        const discountPercentage = Number(discountRange.value) || 0;
+        discountValue.textContent = `${discountRange.value}%`
+    })
+}
 
 
 // APPLY FILTERS
 
 export function applyFilters() {
+
+    const applyFiltersButton = document.getElementById("applyFilters");
+    if (applyFiltersButton) {
+        applyFiltersButton.addEventListener("click", applyFilters);
+    }
+
     const filterByPriceMinInputElement = document.getElementById("filterByPriceMinInput");
     const filterByPriceMaxInputElement = document.getElementById("filterByPriceMaxInput");
     const durationOptionsElement = document.getElementById("durationOptions");
