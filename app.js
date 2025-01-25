@@ -115,3 +115,6 @@ function collapsed(){
     document.getElementById('content-wrapper').classList.toggle("sidebar-open");
     toggleBtn.classList.toggle("rotated");
 }
+
+
+
