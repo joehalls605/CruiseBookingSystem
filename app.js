@@ -49,16 +49,18 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => { // The data here is the parsed content from cruiseCatalogue.json.
             cruiseCatalogue = data; 
             console.log(cruiseCatalogue);
-            renderCruiseCatalogue(cruiseCatalogue);  // Render catalogue
-            renderCruiseDestinations(cruiseCatalogue.map(item => item.destination));  // Render destination dropdown
-            renderDurationOptions(cruiseCatalogue.map(item => item.duration));
-            renderCabinOptions(cruiseCatalogue.map(item => {
-                console.log(item.cabins);
-                return item.cabins;
-            }));
-            sortByOptionsRender();
-            
-            console.log("Cruise data loaded and DOM initialised.");
+
+            if(!window.location.pathname.includes("bookings.html")){
+                renderCruiseCatalogue(cruiseCatalogue);  // Render catalogue
+                renderCruiseDestinations(cruiseCatalogue.map(item => item.destination));  // Render destination dropdown
+                renderDurationOptions(cruiseCatalogue.map(item => item.duration));
+                renderCabinOptions(cruiseCatalogue.map(item => {
+                    console.log(item.cabins);
+                    return item.cabins;
+                }));
+                sortByOptionsRender();
+                console.log("Cruise data loaded and DOM initialised.");
+            }
         })
         .catch(error => {
             console.error("Error loading cruise data:", error);
