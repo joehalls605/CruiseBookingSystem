@@ -20,6 +20,7 @@ export function renderCruiseCatalogue(cruiseCatalogue) {
                 <li>Deluxe Suite: ${cabin.Suite.roomsAvailable}</li>
             `).join('')}
         </ul>
+        <button>Book</button>
         </div>
     `).join("");
 

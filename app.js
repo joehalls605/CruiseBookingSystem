@@ -29,7 +29,15 @@ if(sortByElement) {
     sortByElement.addEventListener("change", sortByUpdate);
 }
 
+// DOM CONTENT LOADED
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Dark mode:
+    const darkModeStatus = localStorage.getItem("darkMode");
+    if(darkModeStatus === "enabled"){
+        document.documentElement.classList.add("darkMode");
+    }
+
 
     // Check for email in localStorage
     const loggedIn = localStorage.getItem("loggedIn");

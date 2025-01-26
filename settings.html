@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta lang="en" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Booking System</title>
+    <link rel="stylesheet" href="/CruiseBookingSystem/styles.css">
+    <link rel="stylesheet" href="/CruiseBookingSystem/settings.css">
+</head>
+<body>
+<div id="sidebar">
+    <div class="toggle-row">
+        <img id="toggle-btn" alt="chevron" src="/images/chevron.svg">
+    </div>
+    <div class="links-row">
+        <ul id="sidebar-links">
+            <li><a href="/CruiseBookingSystem/index.html">Dashboard</a></li>
+            <li><a href="/CruiseBookingSystem/bookings.html">Bookings</a></li>
+            <li><a href="/CruiseBookingSystem/profile.html">Account</a></li>
+            <li><a href="/CruiseBookingSystem/settings.html">Settings</a></li>
+        </ul>
+    </div>
+</div>
+<div id="content-wrapper">
+    <div id="dark-mode-setting">
+        <label for="darkModeToggle">Enable Dark Mode</label>
+        <input type="checkbox" id="darkModeToggle">
+    </div>
+
+    <div id="font-size-setting">
+        <label for="fontSizeRange">Font Size</label>
+        <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+    </div>
+
+    <div id="auto-logout">
+        <label for="logoutTime">Auto Logout Timer (in minutes)</label>
+        <input type="number" id="logoutTime" min="1" max="60" value="30">
+    </div>
+
+    <label for="weather-report-toggle">Enable Weather Report</label>
+    <input type="checkbox" id="weather-report-toggle" onclick="toggleWeatherReport()">
+
+
+
+
+</div>
+</div>
+<script type="module"  src="app.js"></script>
+<script type="module"  src="./settings.js"></script>
+</body>
+</html>
