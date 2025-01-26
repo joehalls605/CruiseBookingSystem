@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cruiseCatalogue = data; 
             console.log(cruiseCatalogue);
 
-            if(!window.location.pathname.includes("bookings.html")){
+            if(!window.location.pathname.includes("bookings.html") && !window.location.pathname.includes("profile.html")){
                 renderCruiseCatalogue(cruiseCatalogue);  // Render catalogue
                 renderCruiseDestinations(cruiseCatalogue.map(item => item.destination));  // Render destination dropdown
                 renderDurationOptions(cruiseCatalogue.map(item => item.duration));
