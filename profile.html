@@ -8,6 +8,20 @@
         <link rel="stylesheet" href="/CruiseBookingSystem/profile.css">
     </head>
     <body>
+    <div id="sidebar">
+        <div class="toggle-row">
+            <img id="toggle-btn" alt="chevron" src="/images/chevron.svg">
+        </div>
+        <div class="links-row">
+            <ul id="sidebar-links">
+                <li><a href="/CruiseBookingSystem/index.html">Dashboard</a></li>
+                <li><a href="/CruiseBookingSystem/bookings.html">Bookings</a></li>
+                <li><a href="/CruiseBookingSystem/profile.html">Account</a></li>
+                <li><a href="/">Settings</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content-wrapper">
         <h2>Information</h2>
         <p id="agent-name">Agent Name: <span id="agent-name-value"></span></p>
         <p id="agent-id">Agent ID: <span id="agent-id-value"></span></p>
@@ -21,6 +35,7 @@
             <input id="password" type="password">
             <img id="visibility-image" src="./images/visibility.png" alt="Toggle visibility">
         </div>
+    </div>
         <script src="./profile.js"></script>
     </body>
 </html>
