@@ -29,14 +29,12 @@
 
     <div id="font-size-setting">
         <label for="fontSizeRange">Font Size</label>
-        <input type="range" id="fontSizeRange" min="12" max="24" value="16">
+        <select id="fontSizeRange">
+            <option value="small">small</option>
+            <option value="medium" selected>medium</option>
+            <option value="large">large</option>
+        </select>
     </div>
-
-    <div id="auto-logout">
-        <label for="logoutTime">Auto Logout Timer (in minutes)</label>
-        <input type="number" id="logoutTime" min="1" max="60" value="30">
-    </div>
-
     <label for="weather-report-toggle">Enable Weather Report</label>
     <input type="checkbox" id="weather-report-toggle" onclick="toggleWeatherReport()">
 

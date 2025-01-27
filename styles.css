@@ -39,6 +39,18 @@ html.darkMode #booking-table{
     color:black;
 }
 
+html.smallFont{
+    font-size: 14px;
+}
+html.mediumFont{
+    font-size:16px;
+}
+html.largeFont{
+    font-size:18px;
+}
+
+
+
 #header{
     display: flex;
     justify-content: space-between; /* I'm using space-between to push the items to either side.*/

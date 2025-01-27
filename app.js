@@ -37,6 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if(darkModeStatus === "enabled"){
         document.documentElement.classList.add("darkMode");
     }
+    // Font size:
+    const fontStatus = localStorage.getItem("fontSize") || "medium"; // Default to "medium" if no value is set
+    document.documentElement.classList.add(`${fontStatus}Font`);
+
+    const fontSizeElement = document.getElementById("fontSizeRange");
+    if(fontSizeElement){
+        fontSizeElement.value = fontStatus;
+    }
 
 
     // Check for email in localStorage
@@ -58,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cruiseCatalogue = data; 
             console.log(cruiseCatalogue);
 
-            if(!window.location.pathname.includes("bookings.html") && !window.location.pathname.includes("profile.html")){
+            if(!window.location.pathname.includes("bookings.html") && !window.location.pathname.includes("profile.html") && !window.location.pathname.includes("settings.html")){
                 renderCruiseCatalogue(cruiseCatalogue);  // Render catalogue
                 renderCruiseDestinations(cruiseCatalogue.map(item => item.destination));  // Render destination dropdown
                 renderDurationOptions(cruiseCatalogue.map(item => item.duration));
