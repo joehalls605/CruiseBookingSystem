@@ -55,8 +55,8 @@ export function renderDurationOptions(cruiseDurations){
     durationOptionsElement.innerHTML = "";
 
     const defaultOption = document.createElement("option");
-    defaultOption.textContent = "Choose a duration";
-    defaultOption.value = "";
+    defaultOption.textContent = "Any";
+    defaultOption.value = "Any";
     durationOptionsElement.appendChild(defaultOption);
 
     // Adding durations as options

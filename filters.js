@@ -52,6 +52,9 @@ export function applyFilters() {
 
     const minPrice = Number(filterByPriceMinInputElement.value) || 0;
     const maxPrice = Number(filterByPriceMaxInputElement.value) || Infinity;
+
+    const destinationElement = document.getElementById("destinationOptions");
+    const destination = destinationElement.value;
     const selectedDestination = storeDestination();
 
     const firstname = firstnameElement.value.trim();
@@ -70,12 +73,18 @@ export function applyFilters() {
     console.log("Current cruiseCatalogue:", cruiseCatalogue);
 
     let filteredCatalogue = cruiseCatalogue.filter(function (element) {
+        /* If the element passes all the conditions above, the function includes it in the filtered array */
+
         // Checking the price range
         if (maxPrice > 0 && element.pricePerPerson > maxPrice) return false;
         if (element.pricePerPerson < minPrice) return false;
 
         // Checking the destination
-        if (selectedDestination && element.destination !== selectedDestination) return false;
+        if(destination === "Any"){
+            return true
+        }
+        if (destination && element.destination !== destination) return false;
+
 
         // Checking the duration
         if(duration && duration !== element.duration) return false;
@@ -94,10 +103,11 @@ export function applyFilters() {
         }
 
         const discountedPrice = item.pricePerPerson * (1 - discountPercentage / 100);
+        const roundedPrice = Math.round(discountedPrice * 100) / 100;
         console.log("Price:", item.pricePerPerson, "Discount:", discountPercentage);
         return {
             ...item, // copy existing properties
-            pricePerPerson: discountedPrice // Update the price with discounted value
+            pricePerPerson: roundedPrice // Update the price with discounted value
         }
     })
 
