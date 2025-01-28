@@ -35,7 +35,7 @@ export function renderCruiseDestinations(cruiseDestinations) {
 
     // Creating a default choose destination option
     const defaultOption = document.createElement("option");
-    defaultOption.textContent = "Choose destination";
+    defaultOption.textContent = "Any";
     defaultOption.value = "";
     destinationOptionsElement.appendChild(defaultOption);
 
@@ -66,41 +66,6 @@ export function renderDurationOptions(cruiseDurations){
         optionElement.value = duration;
         durationOptionsElement.appendChild(optionElement);
     })
-}
-
-export function renderCabinOptions(cabinOptions){
-    console.log("cabin options", );
-
-    const cabinOptionsElement = document.getElementById("cabinOptions");
-    cabinOptionsElement.innerHTML = "";
-
-    const defaultOption = document.createElement("option");
-    defaultOption.textContent = "Choose a cabin";
-    defaultOption.value = "";
-    cabinOptionsElement.appendChild(defaultOption);
-
-    console.log(cabinOptions);
-
-    const cabinTypesArray = [];
-
-    cabinOptions.forEach(cabinArray =>{
-        cabinArray.forEach(cabin =>{
-            for(let cabinType in cabin){
-                // Check if the cabin type is already in the array
-                if(!cabinTypesArray.includes(cabinType)){
-                    const cabinData = cabin[cabinType]; // Access the cabin data for each type
-                    console.log("cabin data"+cabinData);
-                    const optionElement = document.createElement("option");
-                    const formattedCabinType = cabinData.name;
-                    optionElement.textContent = ` ${formattedCabinType}`;
-                    optionElement.value = cabinType;
-                    cabinOptionsElement.appendChild(optionElement);
-
-                    cabinTypesArray.push(cabinType);
-                }
-            }
-        });
-    });
 }
 
 export function destinationThankYou(destination){
